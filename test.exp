@@ -1,0 +1,59 @@
+import sys
+import pexpect
+
+c = pexpect.spawn('./games VictorNorman asdf')
+# Lots of output ending in Choose your option:
+c.expect(".*Choose your option:\r\n", timeout=2)
+c.sendline("1")
+c.expect("0. Action\r\n")
+c.expect("1. Adult\r\n")
+c.expect("2. Adventure\r\n")
+c.expect("3. Baseball\r\n")
+c.expect("4. Battle\r\n")
+c.expect("5. Board\r\n")
+c.expect("6. Card\r\n")
+c.expect("7. Casino\r\n")
+c.expect("8. Compilation\r\n")
+c.expect("9. Editor\r\n")
+c.expect("10. Educational\r\n")
+c.expect("11. Fighting\r\n")
+c.expect("12. First-Person\r\n")
+c.expect("13. Flight\r\n")
+c.expect("14. Hunting\r\n")
+c.expect("15. Music\r\n")
+c.expect("16. None\r\n")
+c.expect("17. Other\r\n")
+c.expect("18. Party\r\n")
+c.expect("19. Pinball\r\n")
+c.expect("20. Platformer\r\n")
+c.expect("21. Productivity\r\n")
+c.expect("22. Puzzle\r\n")
+c.expect("23. RPG\r\n")
+c.expect("24. Racing\r\n")
+c.expect("25. Shooter\r\n")
+c.expect("26. Simulation\r\n")
+c.expect("27. Sports\r\n")
+c.expect("28. Strategy\r\n")
+c.expect("29. Trivia\r\n")
+c.expect("30. Virtual Pet\r\n")
+c.expect("31. Word Games\r\n")
+c.expect("32. Wrestling\r\n")
+c.expect("-------------------------------------------------------------\r\n")
+
+c.expect(".*Choose your option:\r\n", timeout=2)
+c.sendline("4")
+c.expect("Your choice is invalid. Try again, please.\r\n");
+
+c.expect(".*Choose your option:\r\n", timeout=2)
+c.sendline("2")
+c.expect("Enter a number of a game genre to see how many games are in that genre: ")
+c.sendline("32")    # the Wrestling genre
+
+# ending of the results
+c.expect(".*WWF Warzone")
+c.expect("WWF Wrestlemania 2000")
+c.expect("WWF Wrestlemania: The Arcade Game")
+
+c.expect(".*Choose your option:\r\n", timeout=2)
+c.sendline("9")
+c.expect("Thanks for using the program.\r\n");
