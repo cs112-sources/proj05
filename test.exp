@@ -1,7 +1,7 @@
 import sys
 import pexpect
 
-c = pexpect.spawn('./games VictorNorman asdf')
+c = pexpect.spawn('./games EricAraujo 12345678')
 # Lots of output ending in Choose your option:
 c.expect(".*Choose your option:\r\n", timeout=2)
 c.sendline("1")
